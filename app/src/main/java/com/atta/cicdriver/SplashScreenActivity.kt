@@ -3,6 +3,7 @@ package com.atta.cicdriver
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,11 +11,13 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.atta.cicdriver.model.Route
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.util.*
 
 class SplashScreenActivity : AppCompatActivity() {
 
@@ -31,8 +34,11 @@ class SplashScreenActivity : AppCompatActivity() {
         auth = Firebase.auth
 
         db = Firebase.firestore
-        getRouteData()
-
+        if (SessionManager.with(this).getUserType() == "1") {
+            getRouteData()
+        }else{
+            startHandler()
+        }
 
     }
 
@@ -52,6 +58,8 @@ class SplashScreenActivity : AppCompatActivity() {
 
                                 startHandler()
                             }
+                        }else{
+                            startHandler()
                         }
                     }
                     .addOnFailureListener {
@@ -70,6 +78,7 @@ class SplashScreenActivity : AppCompatActivity() {
         // we used the postDelayed(Runnable, time) method
         // to send a message with a delayed time.
         Handler(Looper.getMainLooper()).postDelayed({
+            changeLanguage(SessionManager.with(this).getLanguage())
             val result = checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
 
             if (result != PackageManager.PERMISSION_GRANTED) {
@@ -109,6 +118,15 @@ class SplashScreenActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun changeLanguage(language: String) {
+        val locale = Locale(language)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
+
     }
 
     companion object {

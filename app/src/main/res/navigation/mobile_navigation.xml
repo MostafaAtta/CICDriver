@@ -7,19 +7,152 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.atta.cicdriver.ui.home.HomeFragment"
+        android:name="com.atta.cicdriver.ui.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.atta.cicdriver.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_channels"
+        android:name="com.atta.cicdriver.ui.ChatChannelsFragment"
+        android:label="@string/title_chat"
+        tools:layout="@layout/fragment_chat_channels" >
+        <action
+            android:id="@+id/action_navigation_channels_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.atta.cicdriver.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_more"
+        android:name="com.atta.cicdriver.ui.MoreFragment"
+        android:label="@string/title_more"
+        tools:layout="@layout/fragment_more" >
+        <action
+            android:id="@+id/action_navigation_more_to_studentsAccountsFragment"
+            app:destination="@id/studentsAccountsFragment" />
+        <action
+            android:id="@+id/action_navigation_more_to_driversAccountsFragment"
+            app:destination="@id/driversAccountsFragment" />
+        <action
+            android:id="@+id/action_navigation_more_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_navigation_more_to_routeRequestsFragment"
+            app:destination="@id/routeRequestsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.atta.cicdriver.ui.ChatFragment"
+        android:label="{userName}"
+        tools:layout="@layout/fragment_chat" >
+        <argument
+            android:name="userId"
+            app:argType="string" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_routes"
+        android:name="com.atta.cicdriver.ui.RoutesFragment"
+        android:label="@string/routes"
+        tools:layout="@layout/fragment_routes">
+        <action
+            android:id="@+id/action_routesFragment_to_routeDetailsFragment"
+            app:destination="@id/routeDetailsFragment" />
+        <action
+            android:id="@+id/action_navigation_routes_to_newRouteFragment"
+            app:destination="@id/newRouteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/routeDetailsFragment"
+        android:name="com.atta.cicdriver.ui.RouteDetailsFragment"
+        android:label="{routeName}"
+        tools:layout="@layout/fragment_route_details">
+        <argument
+            android:name="route"
+            app:argType="com.atta.cicdriver.model.Route" />
+        <argument
+            android:name="routeName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_routeDetailsFragment_to_newRouteFragment"
+            app:destination="@id/newRouteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newRouteFragment"
+        android:name="com.atta.cicdriver.ui.NewRouteFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_new_route" >
+        <argument
+            android:name="route"
+            app:argType="com.atta.cicdriver.model.Route"
+            app:nullable="true" />
+        <argument
+            android:name="edit"
+            app:argType="boolean" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/driversAccountsFragment"
+        android:name="com.atta.cicdriver.ui.DriversAccountsFragment"
+        android:label="@string/drivers_accounts"
+        tools:layout="@layout/fragment_drivers_accounts" >
+        <action
+            android:id="@+id/action_driversAccountsFragment_to_editDriverAccFragment"
+            app:destination="@id/editDriverAccFragment" />
+        <action
+            android:id="@+id/action_driversAccountsFragment_to_newDriverFragment"
+            app:destination="@id/newDriverFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.atta.cicdriver.ui.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/routeRequestsFragment"
+        android:name="com.atta.cicdriver.ui.RouteRequestsFragment"
+        android:label="@string/route_requests"
+        tools:layout="@layout/fragment_route_requests" >
+        <action
+            android:id="@+id/action_routeRequestsFragment_to_requestDetailsFragment"
+            app:destination="@id/requestDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentsAccountsFragment"
+        android:name="com.atta.cicdriver.ui.StudentsAccountsFragment"
+        android:label="@string/students_accounts"
+        tools:layout="@layout/fragment_students_accounts" />
+    <fragment
+        android:id="@+id/requestDetailsFragment"
+        android:name="com.atta.cicdriver.ui.RequestDetailsFragment"
+        android:label="@string/request_details"
+        tools:layout="@layout/fragment_request_details" >
+        <argument
+            android:name="request"
+            app:argType="com.atta.cicdriver.model.RouteRequest" />
+    </fragment>
+    <fragment
+        android:id="@+id/editDriverAccFragment"
+        android:name="com.atta.cicdriver.ui.EditDriverAccFragment"
+        android:label="@string/edit_driver_acc"
+        tools:layout="@layout/fragment_edit_driver_acc">
+        <argument
+            android:name="driver"
+            app:argType="com.atta.cicdriver.model.User" />
+        <action
+            android:id="@+id/action_editDriverAccFragment_to_navigation_more"
+            app:destination="@id/navigation_more" />
+    </fragment>
+    <fragment
+        android:id="@+id/newDriverFragment"
+        android:name="com.atta.cicdriver.ui.NewDriverFragment"
+        android:label="@string/new_driver"
+        tools:layout="@layout/fragment_new_driver" >
+        <action
+            android:id="@+id/action_newDriverFragment_to_navigation_more"
+            app:destination="@id/navigation_more" />
+    </fragment>
 </navigation>

@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
-import com.atta.cicdriver.ui.home.HomeFragment
+import com.atta.cicdriver.ui.HomeFragment
 import com.google.android.gms.location.LocationResult
 import java.lang.Exception
 

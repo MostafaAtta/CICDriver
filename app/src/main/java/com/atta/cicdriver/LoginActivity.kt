@@ -7,6 +7,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.atta.cicdriver.databinding.ActivityLoginBinding
+import com.atta.cicdriver.model.Route
+import com.atta.cicdriver.model.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -144,7 +146,13 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                         user.id = document.id
                         SessionManager.with(this).login(user)
 
-                        getRouteData(document.id)
+                        if (user.type == "1"){
+                            getRouteData(document.id)
+                        }else{
+                            val intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
                     }
 
                 }

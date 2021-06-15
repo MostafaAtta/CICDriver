@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">CIC Driver</string>
-    <string name="welcome">Welcome to CIC Shuttle</string>
+    <string name="welcome">Welcome to CIC Driver</string>
     <string name="login">Please use your Google account to Login</string>
     <string name="logout">Logout</string>
     <string name="account_details">Account Details</string>
@@ -29,8 +29,114 @@
     <string name="stop_location_updates_button_text">Stop receiving location updates</string>
 
     <string name="location_updated">Location Updated: %1$s</string>
-
-    <string name="preference_file_key">com.example.android.while_in_use_location.PREFERENCE_FILE_KEY</string>
     <string name="no_location_text">No current location</string>
     <string name="title_activity_maps">Map</string>
+    <string name="action_chat">Chat</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="type_a_message">Type a message</string>
+    <string name="message_sample">I am here</string>
+    <string name="title_chat">Chat</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="more">More</string>
+    <string name="title_route">Routes</string>
+    <string name="title_more">More</string>
+    <string name="sos_call">SOS Call</string>
+    <string name="ambulance">Ambulance</string>
+    <string name="fire_station">Fire station</string>
+    <string name="police">Police</string>
+    <string name="call_admin">Call Admin</string>
+    <string name="my_profile">Profile</string>
+    <string name="create_driver_account">Create driver accounts</string>
+    <string name="create_student_account">Show student accounts</string>
+    <string name="show_route_requests">Show route requests</string>
+    <string name="language">Language</string>
+    <string name="select_language">Select language</string>
+    <string name="ar">عربي</string>
+    <string name="en">English</string>
+    <string name="routes">Routes</string>
+    <string name="new_route">New Route</string>
+    <string name="edit_route">Edit Route</string>
+    <string name="drivers_accounts">Drivers Accounts</string>
+    <string name="profile">Profile</string>
+    <string name="route_requests">Route Requests</string>
+    <string name="students_accounts">Students Accounts</string>
+    <string name="student_account">Student Account</string>
+    <string name="morning_trip">Morning Trip:</string>
+    <string name="start_time">Start Time:</string>
+    <string name="end_time">End Time:</string>
+    <string name="afternoon_trip">Afternoon Trip:</string>
+    <string name="bus_capacity">Bus capacity:</string>
+    <string name="bus_capacity2">Bus capacity</string>
+    <string name="driver">Driver:</string>
+    <string name="student_name">Student name:</string>
+    <string name="route">Route:</string>
+    <string name="student_previous_route">Student previous route</string>
+    <string name="bus_details">Bus Details:</string>
+    <string name="approve">Approve</string>
+    <string name="reject">Reject</string>
+    <string name="available_chairs">Available Chairs:</string>
+    <string name="try_again">Can\'t update record now, please try gain later</string>
+    <string name="request_rejected">Request Rejected</string>
+    <string name="approved">Approved</string>
+    <string name="rejected">Rejected</string>
+    <string name="request_approved">Request Approved</string>
+    <string name="new_requests">New Requests</string>
+    <string name="old_requests">Old Requests</string>
+    <string name="college_id">College Id</string>
+    <string name="new_accounts">New Accounts</string>
+    <string name="old_accounts">Current Accounts</string>
+    <string name="enable">Enable</string>
+    <string name="college_id2">College Id:</string>
+    <string name="email2">Email:</string>
+    <string name="phone2">Phone:</string>
+    <string name="disable">Disable</string>
+    <string name="edit">Edit</string>
+    <string name="driver_name">Driver name:</string>
+    <string name="route_name">Route name:</string>
+    <string name="route_name2">Route name</string>
+    <string name="edit_driver_acc">Edit Driver Acc</string>
+    <string name="new_driver">New Driver</string>
+    <string name="request_details">Request Details</string>
+    <string name="update">Update</string>
+    <string name="update_driver_information">Update Driver Information</string>
+    <string name="update_your_information">Update Your Information</string>
+    <string name="driver_information">Driver Information</string>
+    <string name="create">Create</string>
+    <string name="user_exist">User Already exist, Email address can\'t be duplicated</string>
+    <string name="point_name">Point name</string>
+    <string name="add">Add</string>
+    <string name="new_point">New Point</string>
+    <string name="point_add">Point added</string>
+    <string name="points_error">Can\'t get route points now, please try gain later</string>
+    <string name="to_update_route">to update route details, kindly contact admin</string>
+
+    <array name="morning_start_times">
+        <item> 06:00</item>
+        <item> 06:30</item>
+        <item> 07:00</item>
+        <item> 07:30</item>
+        <item> 08:00</item>
+    </array>
+    <array name="morning_end_times">
+        <item> 07:00</item>
+        <item> 07:30</item>
+        <item> 08:00</item>
+        <item> 08:30</item>
+        <item> 09:00</item>
+    </array>
+    <array name="afternoon_start_times">
+        <item> 14:00</item>
+        <item> 14:30</item>
+        <item> 15:00</item>
+        <item> 15:30</item>
+        <item> 16:00</item>
+    </array>
+    <array name="afternoon_end_times">
+        <item> 15:00</item>
+        <item> 15:30</item>
+        <item> 16:00</item>
+        <item> 16:30</item>
+        <item> 17:00</item>
+    </array>
 </resources>
