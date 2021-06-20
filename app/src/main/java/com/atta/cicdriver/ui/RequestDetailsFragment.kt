@@ -115,14 +115,16 @@ class RequestDetailsFragment : Fragment() {
     }
 
     private fun addRouteToUser() {
-        val userRoute = mapOf("routeId" to route.id ,
+
+        if (previousRouteId == null){
+            val userRoute = mapOf("userId" to request.userId,
+                "userName" to request.userName,
+                "routeId" to route.id ,
                 "routeName" to route.name,
                 "driverId" to route.driverId,
                 "driverName" to route.driverName)
-        if (previousRouteId == null){
             db.collection("user_route")
-                    .document()
-                    .set(userRoute)
+                    .add(userRoute)
                     .addOnSuccessListener {
                         updateStatus(getString(R.string.approved), getString(R.string.request_approved))
                     }
@@ -130,6 +132,10 @@ class RequestDetailsFragment : Fragment() {
                         Toast.makeText(context, getString(R.string.try_again), Toast.LENGTH_LONG).show()
                     }
         }else{
+            val userRoute = mapOf("routeId" to route.id ,
+                "routeName" to route.name,
+                "driverId" to route.driverId,
+                "driverName" to route.driverName)
             db.collection("user_route")
                     .document(previousRouteId.toString())
                     .update(userRoute)
