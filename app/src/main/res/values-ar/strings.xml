@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CIC Driver</string>
+    <string name="welcome">اهلا بك في التطبيق</string>
+    <string name="login">من فضلك استخدم حساب جوجل لتسجيل الدخول</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="account_details">بيانات الحساب</string>
+
+    <string name="complete_your_information">تكمله البيانات</string>
+
+    <string name="done">تم</string>
+
+    <string name="email">الايميل</string>
+
+    <string name="first_name">الاسم الاول</string>
+
+    <string name="last_name">اسم العائلة</string>
+
+    <string name="phone">رقم المحمول</string>
+
+    <string name="title_activity_main">العام</string>
+
+    <string name="title_home">الصفحه الرئيسية</string>
+
+    <string name="title_dashboard">القائمة</string>
+
+    <string name="title_notifications">الاشعارات</string>
+
+
+
+    <string name="launch_activity">Launch activity</string>
+    <string name="location_unknown">الموقع غير معروف</string>
+    <string name="location_updates_label">تحديث الموقع</string>
+
+    <string name="permission_rationale">التطبيق يحتاج الي الوصول اللي الموقع</string>
+    <string name="permission_denied_explanation">برجاء اعطاء اذن الوصول اللي الموقع حتي يعمل التطبيق</string>
+
+    <string name="settings">الاعدادات</string>
+
+    <string name="ok">تم</string>
+
+    <string name="start_location_updates_button_text">متابعه الموقع</string>
+
+    <string name="stop_location_updates_button_text">ايقاف متابعه الموقع</string>
+
+    <string name="location_updated">تم تحديث الموقع : %1$s</string>
+
+    <string name="no_location_text">لا يوجد تحديث للموقع</string>
+
+    <string name="title_activity_maps">الخريطة</string>
+
+    <string name="action_chat">ارسل</string>
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+
+    <string name="type_a_message">اكتب</string>
+
+    <string name="message_sample">لقد وصلت</string>
+
+    <string name="title_chat">الرسائل</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="more">المزيد</string>
+
+    <string name="title_route">الطرق</string>
+
+    <string name="title_more">المزيد</string>
+
+    <string name="sos_call">الطوارئ</string>
+
+    <string name="ambulance">الاسعاف</string>
+
+    <string name="fire_station">المطافي</string>
+
+    <string name="police">الشرطة</string>
+
+    <string name="call_admin">التواصل مع المسؤل</string>
+
+    <string name="my_profile">الحساب الشخصي</string>
+
+    <string name="create_driver_account">انشاء حساب للسائق</string>
+
+    <string name="create_student_account">اظهار حسابات الطلاب </string>
+
+    <string name="show_route_requests">طلبات اضافه الخطوط</string>
+
+    <string name="language">اللغة</string>
+
+    <string name="select_language">اختار اللغة</string>
+
+    <string name="ar">عربي</string>
+
+    <string name="en">English</string>
+
+    <string name="routes">الخطوط</string>
+
+    <string name="new_route">خط جديد</string>
+
+    <string name="drivers_accounts">حسابات السائقين</string>
+
+    <string name="profile">الحساب</string>
+
+    <string name="route_requests">طلبات اضافه الخطوط</string>
+
+    <string name="students_accounts">حسابات الطلاب</string>
+
+    <string name="morning_trip">الرحله الصباحية:</string>
+    <string name="start_time">ابدا:</string>
+    <string name="end_time">انتهاء:</string>
+    <string name="afternoon_trip">رحلة بعد الظهر:</string>
+    <string name="bus_capacity">عدد الطلاب:</string>
+    <string name="bus_capacity2">عدد الطلاب</string>
+    <string name="driver">السائق:</string>
+    <string name="student_name">اسم الطالب:</string>
+    <string name="route">الخط:</string>
+    <string name="student_previous_route">الخط السابق</string>
+    <string name="bus_details">معلومات الباص:</string>
+    <string name="approve">قبول</string>
+    <string name="reject">رفض</string>
+    <string name="available_chairs">الكراسي المتاحه:</string>
+    <string name="try_again">حاول مرة اخري</string>
+    <string name="request_rejected">تم رفض طلبك</string>
+    <string name="approved">تم قبولك</string>
+    <string name="rejected">تم رفض طلبك</string>
+    <string name="request_approved">تم قبولك</string>
+    <string name="new_requests">الطلبات الجديدة</string>
+    <string name="old_requests">الطلبات القديمة</string>
+    <string name="college_id">رقم الاي دي</string>
+    <string name="new_accounts">الحسابات الجديدة</string>
+    <string name="old_accounts">الحسابات الحالية</string>
+    <string name="enable">سماح</string>
+    <string name="college_id2">رقم الاي دي:</string>
+    <string name="email2">الايميل:</string>
+    <string name="phone2">رقم المحمول:</string>
+    <string name="disable">اللغاء التفعيل</string>
+    <string name="edit">اعداد</string>
+    <string name="driver_name">اسم السائق:</string>
+    <string name="route_name">الخط:</string>
+    <string name="route_name2">الخط</string>
+    <string name="edit_driver_acc">اعداد حساب السائق</string>
+    <string name="new_driver">سائق جديد</string>
+    <string name="request_details">بيانات الطلبات</string>
+    <string name="update">تحديث</string>
+    <string name="update_driver_information">تحديث معلومات السائق</string>
+    <string name="update_your_information">تحديث بياناتك</string>
+    <string name="driver_information">بيانات السائق</string>
+    <string name="create">انشاء</string>
+    <string name="user_exist">الايميل مستخدم بالفعل</string>
+    <string name="point_name">نقطه الوقوف</string>
+    <string name="add">اضافة</string>
+    <string name="new_point">اضافة نقطة جديدة</string>
+    <string name="point_add">تم الاضافة</string>
+    <string name="points_error">حاول مرة اخري</string>
+    <string name="to_update_route">برجاء التواصل مع الادمن</string>
+
+    <array name="morning_start_times">
+        <item> 06:00</item>
+        <item> 06:30</item>
+        <item> 07:00</item>
+        <item> 07:30</item>
+        <item> 08:00</item>
+    </array>
+    <array name="morning_end_times">
+        <item> 07:00</item>
+        <item> 07:30</item>
+        <item> 08:00</item>
+        <item> 08:30</item>
+        <item> 09:00</item>
+    </array>
+    <array name="afternoon_start_times">
+        <item> 14:00</item>
+        <item> 14:30</item>
+        <item> 15:00</item>
+        <item> 15:30</item>
+        <item> 16:00</item>
+    </array>
+    <array name="afternoon_end_times">
+        <item> 15:00</item>
+        <item> 15:30</item>
+        <item> 16:00</item>
+        <item> 16:30</item>
+        <item> 17:00</item>
+    </array>
+</resources>
