@@ -78,7 +78,7 @@ class NewDriverFragment : Fragment() {
             "phone" to binding.phoneTv.text.toString(),
             "routeName" to route.name,
             "routeId" to route.id,
-            "type" to 0)
+            "type" to "1")
         db.collection("Drivers")
             .add(acc)
             .addOnSuccessListener {
