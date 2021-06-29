@@ -8,7 +8,6 @@ import com.atta.cicdriver.ui.HomeFragment
 import com.google.android.gms.location.LocationResult
 import java.lang.Exception
 
-
 class LocationReceiver : BroadcastReceiver(){
     companion object{
         const val ACTION_LOCATION_UPDATE = "com.atta.cicdriver.updateLocation"

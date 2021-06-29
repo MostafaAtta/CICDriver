@@ -123,6 +123,7 @@
     <string name="account_enabled">Account enabled</string>
     <string name="account_disabled">Account disabled</string>
     <string name="check_your_access">You can\'t login now, Check your access</string>
+    <string name="user_not_found">User not found, please contact admin</string>
 
     <array name="morning_start_times">
         <item> 06:00</item>

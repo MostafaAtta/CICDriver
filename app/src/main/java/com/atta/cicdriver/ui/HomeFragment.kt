@@ -50,7 +50,6 @@ class HomeFragment : Fragment() {
 
         mMap.uiSettings.isZoomControlsEnabled = true
 
-
         if (context?.let { checkSelfPermission(it, Manifest.permission.ACCESS_FINE_LOCATION) } != PackageManager.PERMISSION_GRANTED
                 && context?.let { checkSelfPermission(it, Manifest.permission.ACCESS_COARSE_LOCATION) } != PackageManager.PERMISSION_GRANTED) {
 
@@ -141,14 +140,14 @@ class HomeFragment : Fragment() {
         mMap.addMarker(marker)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLatLng, 14f))
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(myLatLng))
-
+/*
         val icon2: BitmapDescriptor = BitmapDescriptorFactory
                 .fromResource(R.drawable.passenger)
         val myLatLng2 = LatLng(30.058205443102477, 31.345448798902545)
         var marker2 = MarkerOptions().position(myLatLng2)
                 .title(routeName)
                 .icon(icon2)
-        mMap.addMarker(marker2)
+        mMap.addMarker(marker2)*/
         if (context?.let { SessionManager.with(it).getUserType() } == "1") {
             setLocation(location)
         }

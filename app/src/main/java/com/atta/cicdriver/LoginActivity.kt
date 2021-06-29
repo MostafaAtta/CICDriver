@@ -135,10 +135,13 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
             .get()
             .addOnSuccessListener {
                 if (it.isEmpty){
-                    val intent = Intent(this, RegisterActivity::class.java)
+
+                    Toast.makeText(this, getString(R.string.user_not_found), Toast.LENGTH_SHORT).show()
+
+                    /*val intent = Intent(this, RegisterActivity::class.java)
                     intent.putExtra("email", email)
                     startActivity(intent)
-                    finish()
+                    finish()*/
                 }else{
                     for (document in it){
 

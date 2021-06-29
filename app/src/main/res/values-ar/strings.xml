@@ -168,6 +168,7 @@
     <string name="account_enabled">لقد تم تفعيل الحساب</string>
     <string name="account_disabled">لقد تم تعطيل الحساب</string>
     <string name="check_your_access">لا يمكن تسجيل الدخوال, تححق من صلاحياتك</string>
+    <string name="user_not_found">الحساب غير مسجل, برجاء التواصل مع المسؤل</string>
 
     <array name="morning_start_times">
         <item> 06:00</item>
