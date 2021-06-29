@@ -57,6 +57,8 @@
                 android:drawablePadding="6dp"
                 android:maxLines="1"
                 android:singleLine="true"
+                android:enabled="false"
+                android:focusable="false"
                 android:nextFocusForward="@id/lastName_textInputLayout"
                 android:hint="@string/email" />
         </com.google.android.material.textfield.TextInputLayout>
