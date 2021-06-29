@@ -32,7 +32,8 @@
     <string name="no_location_text">No current location</string>
     <string name="title_activity_maps">Map</string>
     <string name="action_chat">Chat</string>
-    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="type_a_message">Type a message</string>
     <string name="message_sample">I am here</string>
     <string name="title_chat">Chat</string>
@@ -110,6 +111,18 @@
     <string name="point_add">Point added</string>
     <string name="points_error">Can\'t get route points now, please try gain later</string>
     <string name="to_update_route">to update route details, kindly contact admin</string>
+    <string name="driver_account">Driver Account</string>
+    <string name="enbale_account">Enable Account</string>
+    <string name="disable_account">Disable Account</string>
+    <string name="enbale_q">Are you sure you want to enable this account?</string>
+    <string name="disable_q">Are you sure you want to disable this account?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="enabled">Enabled</string>
+    <string name="disabled">Disabled</string>
+    <string name="account_enabled">Account enabled</string>
+    <string name="account_disabled">Account disabled</string>
+    <string name="check_your_access">You can\'t login now, Check your access</string>
 
     <array name="morning_start_times">
         <item> 06:00</item>

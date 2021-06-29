@@ -11,7 +11,11 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.atta.cicdriver.databinding.FragmentMoreBinding
 import com.atta.cicdriver.model.Route
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -21,10 +25,11 @@ import java.util.*
 
 class SplashScreenActivity : AppCompatActivity() {
 
-
     private lateinit var auth: FirebaseAuth
 
     private lateinit var db: FirebaseFirestore
+
+    private lateinit var googleSignInClient: GoogleSignInClient
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,13 +37,70 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         auth = Firebase.auth
-
         db = Firebase.firestore
         if (SessionManager.with(this).getUserType() == "1") {
             getRouteData()
         }else{
             startHandler()
         }
+
+    }
+
+    private fun logout() {
+
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+
+        // [START initialize_auth]
+        // Initialize Firebase Auth
+        auth = Firebase.auth
+
+        // Firebase sign out
+        auth.signOut()
+
+        SessionManager.with(this).logout()
+
+        // Google sign out
+        googleSignInClient.signOut().addOnCompleteListener {
+            if (it.isSuccessful){
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun checkUser() {
+        val userID = SessionManager.with(this).getUserId()
+        db.collection("Drivers")
+            .document(SessionManager.with(this).getUserId())
+            .get()
+            .addOnSuccessListener {
+
+                val enabled = it["enabled"] as Boolean
+
+                if (enabled){
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }else{
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+
+
+            }
+            .addOnFailureListener {
+
+                startHandler()
+                Toast.makeText(this, "get failed with  $it", Toast.LENGTH_SHORT).show()
+            }
 
     }
 
@@ -90,9 +152,7 @@ class SplashScreenActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 }else{
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
+                    checkUser()
                 }
             }
 
@@ -106,6 +166,7 @@ class SplashScreenActivity : AppCompatActivity() {
         requestPermissions(permission, FINE_LOCATION_REQUEST_CODE)
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         val currentUser = auth.currentUser
@@ -114,9 +175,7 @@ class SplashScreenActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }else{
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            checkUser()
         }
     }
 

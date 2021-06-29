@@ -98,8 +98,10 @@
 
     <string name="new_route">خط جديد</string>
 
+    <string name="edit_route">تعديل الخط</string>
     <string name="drivers_accounts">حسابات السائقين</string>
 
+    <string name="student_account">حساب الطالب</string>
     <string name="profile">الحساب</string>
 
     <string name="route_requests">طلبات اضافه الخطوط</string>
@@ -135,7 +137,7 @@
     <string name="email2">الايميل:</string>
     <string name="phone2">رقم المحمول:</string>
     <string name="disable">اللغاء التفعيل</string>
-    <string name="edit">اعداد</string>
+    <string name="edit">تعديل</string>
     <string name="driver_name">اسم السائق:</string>
     <string name="route_name">الخط:</string>
     <string name="route_name2">الخط</string>
@@ -154,6 +156,18 @@
     <string name="point_add">تم الاضافة</string>
     <string name="points_error">حاول مرة اخري</string>
     <string name="to_update_route">برجاء التواصل مع الادمن</string>
+    <string name="driver_account">حساب السائق</string>
+    <string name="enbale_account">تفغيل الحساب</string>
+    <string name="disable_account">تعطيل الحساب</string>
+    <string name="enbale_q">هل انت متأكد من تفعيل هذا الحساب؟</string>
+    <string name="disable_q">هل انت متأكد من نعطيل هذا الحساب؟</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="enabled">مفعل</string>
+    <string name="disabled">معطل</string>
+    <string name="account_enabled">لقد تم تفعيل الحساب</string>
+    <string name="account_disabled">لقد تم تعطيل الحساب</string>
+    <string name="check_your_access">لا يمكن تسجيل الدخوال, تححق من صلاحياتك</string>
 
     <array name="morning_start_times">
         <item> 06:00</item>

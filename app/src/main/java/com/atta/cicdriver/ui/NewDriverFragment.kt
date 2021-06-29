@@ -14,6 +14,8 @@ import com.atta.cicdriver.model.Route
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.util.*
+import kotlin.collections.ArrayList
 
 class NewDriverFragment : Fragment() {
 
@@ -72,7 +74,7 @@ class NewDriverFragment : Fragment() {
 
 
     private fun createAcc() {
-        val acc = mapOf("email" to binding.emailTv.text.toString(),
+        val acc = mapOf("email" to binding.emailTv.text.toString().toLowerCase(Locale.ROOT),
             "firstName" to binding.firstNameTv.text.toString(),
             "lastName" to binding.lastNameTv.text.toString(),
             "phone" to binding.phoneTv.text.toString(),

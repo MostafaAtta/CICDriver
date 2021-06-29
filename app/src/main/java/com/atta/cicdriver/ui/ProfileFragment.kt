@@ -35,6 +35,15 @@ class ProfileFragment : Fragment() {
         binding.lastNameTv.setText(context?.let { SessionManager.with(it).getLastName() })
         binding.phoneTv.setText(context?.let { SessionManager.with(it).getPhone() })
 
+
+        if (context?.let { SessionManager.with(it).getRouteId() } == "" ){
+
+            binding.routeGroup.visibility = View.GONE
+        }else{
+
+            binding.routeNameTxt.text = context?.let { SessionManager.with(it).getRouteName() }
+        }
+
         if (context?.let { SessionManager.with(it).getUserType() } == "0"){
             binding.routeGroup.visibility = View.GONE
         }

@@ -9,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.atta.cicdriver.databinding.FragmentEditDriverAccBinding
@@ -17,6 +18,7 @@ import com.atta.cicdriver.model.User
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.lang.Compiler.enable
 
 class EditDriverAccFragment : Fragment() {
 
@@ -58,6 +60,14 @@ class EditDriverAccFragment : Fragment() {
         binding.lastNameTv.setText(driver.lastName)
         binding.phoneTv.setText(driver.phone)
 
+        binding.switch2.isChecked = driver.enabled
+        updateSwitchText(driver.enabled)
+
+        binding.switch2.setOnCheckedChangeListener { buttonView, isChecked ->
+            updateSwitchText(isChecked)
+            showEnableDialog(isChecked)
+        }
+
         binding.done.setOnClickListener {
             updateAcc()
         }
@@ -65,6 +75,52 @@ class EditDriverAccFragment : Fragment() {
         getRoutes()
 
         return view
+    }
+
+    private fun updateSwitchText(enabled: Boolean) {
+        if (enabled) {
+            binding.switch2.text = getString(com.atta.cicdriver.R.string.enabled)
+            binding.switch2.setTextColor(resources.getColor(com.atta.cicdriver.R.color.green))
+        } else {
+            binding.switch2.text = getString(com.atta.cicdriver.R.string.disabled)
+            binding.switch2.setTextColor(resources.getColor(com.atta.cicdriver.R.color.red))
+        }
+    }
+
+    private fun showEnableDialog(checked: Boolean) {
+        val builder = AlertDialog.Builder(requireContext())
+
+        builder.setTitle(if(checked) getString(com.atta.cicdriver.R.string.enbale_account) else getString(com.atta.cicdriver.R.string.disable_account))
+        builder.setMessage(if(checked) getString(com.atta.cicdriver.R.string.enbale_q) else getString(com.atta.cicdriver.R.string.disable_q))
+
+        builder.setPositiveButton(com.atta.cicdriver.R.string.yes) { dialog, which ->
+            enableDisable(checked)
+        }
+
+        builder.setNegativeButton(com.atta.cicdriver.R.string.no) { dialog, which ->
+            binding.switch2.isChecked = !checked
+            updateSwitchText(!checked)
+
+        }
+
+        builder.show()
+    }
+
+    private fun enableDisable(enable: Boolean) {
+        val acc = mapOf("enabled" to enable)
+        db.collection("Drivers")
+            .document(driver.id)
+            .update(acc)
+            .addOnSuccessListener {
+                Toast.makeText(context, if(enable) getString(com.atta.cicdriver.R.string.account_enabled)
+                else getString(com.atta.cicdriver.R.string.account_disabled), Toast.LENGTH_LONG).show()
+
+
+            }
+            .addOnFailureListener {
+                Toast.makeText(context, getString(com.atta.cicdriver.R.string.try_again), Toast.LENGTH_LONG).show()
+
+            }
     }
 
     private fun updateAcc() {

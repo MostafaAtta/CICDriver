@@ -144,15 +144,21 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
 
                         val user = document.toObject(User::class.java)
                         user.id = document.id
-                        SessionManager.with(this).login(user)
+                        if (user.enabled){
+                            SessionManager.with(this).login(user)
 
-                        if (user.type == "1"){
-                            getRouteData(document.id)
+                            if (user.type == "1"){
+                                getRouteData(document.id)
+                            }else{
+                                val intent = Intent(this, MainActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            }
                         }else{
-                            val intent = Intent(this, MainActivity::class.java)
-                            startActivity(intent)
-                            finish()
+                            Toast.makeText(this, getString(com.atta.cicdriver.R.string.check_your_access), Toast.LENGTH_LONG).show()
+
                         }
+
                     }
 
                 }

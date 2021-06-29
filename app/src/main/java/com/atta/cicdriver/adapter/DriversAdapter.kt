@@ -38,10 +38,10 @@ open class DriversAdapter (private val data: List<User>,private val fragment: Dr
                 binding.textViewName.text = "$firstName $lastName"
                 binding.textViewEmail.text = email
                 binding.textViewRouteName.text = routeName
-
+                /*
                 binding.deleteImg.setOnClickListener {
                     fragment.deleteDriverAcc(this)
-                }
+                }*/
                 binding.callImg.setOnClickListener {
                     fragment.callDriver(this.phone)
                 }

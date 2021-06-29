@@ -23,6 +23,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
 
@@ -33,6 +35,10 @@ class MoreFragment : Fragment(), View.OnClickListener {
     private val binding get() = _binding!!
 
     private lateinit var googleSignInClient: GoogleSignInClient
+
+    private lateinit var db: FirebaseFirestore
+
+    var adminPhone = ""
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -51,6 +57,10 @@ class MoreFragment : Fragment(), View.OnClickListener {
         // [START initialize_auth]
         // Initialize Firebase Auth
         auth = Firebase.auth
+
+        db = Firebase.firestore
+
+        getAdminPhone(false)
 
         binding.logout.setOnClickListener(this)
         if (SessionManager.with(requireContext()).getUserType() == "0"){
@@ -93,6 +103,24 @@ class MoreFragment : Fragment(), View.OnClickListener {
                     .navigate(MoreFragmentDirections.actionNavigationMoreToProfileFragment())
         }
         return view
+    }
+
+    private fun getAdminPhone(call: Boolean) {
+        db.collection("Drivers")
+            .whereEqualTo("type", "0")
+            .get()
+            .addOnSuccessListener {
+                if (!it.isEmpty){
+                    for (doc in it){
+                        if (call){
+                            adminPhone = doc["phone"].toString()
+                            callAdmin()
+                        }else {
+                            adminPhone = doc["phone"].toString()
+                        }
+                    }
+                }
+            }
     }
 
     private fun showLanguageDialog() {
@@ -162,14 +190,24 @@ class MoreFragment : Fragment(), View.OnClickListener {
             dialog.dismiss()
         }
         adminBtn.setOnClickListener {
-            val dialIntent = Intent(Intent.ACTION_DIAL)
-            dialIntent.data = Uri.parse("tel:" + "123")
-            startActivity(dialIntent)
+
+            if (adminPhone != "") {
+                callAdmin()
+            }else{
+                getAdminPhone(true)
+            }
+
             dialog.dismiss()
         }
         dialog.window?.setBackgroundDrawableResource(R.drawable.dialog_bg);
         dialog.show()
 
+    }
+
+    private fun callAdmin() {
+        val dialIntent = Intent(Intent.ACTION_DIAL)
+        dialIntent.data = Uri.parse("tel:$adminPhone")
+        startActivity(dialIntent)
     }
 
     private fun logOut() {
